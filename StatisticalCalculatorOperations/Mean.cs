@@ -1,23 +1,26 @@
 ﻿using System;
-using Helpers;
-using Operations;
+using System.Collections.Generic;
+using System.Text;
+using Helper;
+using MathOperations;
 
-
-namespace StatisticalCalculatorOperations
+namespace StatsOperations
 {
     public class Mean
-
     {
-        
-        public static dynamic MeanValue(double [] ArrayValues)
-        {
-            double Sum = Addition.Sum(ArrayValues);
-            double Nitems = Helpers.Arraylength.ArrayLength(ArrayValues);
-            
-            return  Division.Divide(Sum, Nitems);
 
-            
-            
+        public static double mean(double[] ArrayValues)
+        {
+
+
+            double Sum = Addition.Add((int)Convert.ToDouble(ArrayValues));
+
+            int ValueCount = HelperClass.ArrayLenth(ArrayValues);
+
+            double Value =Division.Div(Sum,ValueCount);
+            return Value;
+
         }
+
     }
 }
