@@ -1,34 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Operations;
+using Helper;
+using MathOperations;
 
-namespace StatisticalCalculatorOperations
+namespace StatsOperations
 {
     public class Variance
     {
-        
-        public static dynamic Findvariance(double[]arrayA)
+     
+        public static double variance(double[] ArrayValues)
         {
-                
-           double mean = Mean.MeanValue(arrayA);
-            double[] squaredDeviation = new double[Helpers.Arraylength.ArrayLength(arrayA)];
 
-            int i = 0;
+            double  meanvalue=Mean.mean(ArrayValues);
+           
 
-            foreach (int a in squaredDeviation)
+            double diff = 0;
+            int varvalue = 0;
+
+            foreach (int i in ArrayValues)
             {
-                squaredDeviation[i] = Square.Sqr(Subtraction.Sub(a,mean));
-
-                i++;
+                diff = Subtraction.Sub((int) meanvalue,i);
+                diff = Math.Pow(diff,2);
+                varvalue = Addition.Add(varvalue ,(int) diff);
             }
 
-             return  Mean.MeanValue(squaredDeviation);
 
-            
+            int ValueCount = HelperClass.ArrayLenth(ArrayValues);
+            varvalue = Division.Div(varvalue,ValueCount);
+            return varvalue;
 
         }
 
     }
 }
-

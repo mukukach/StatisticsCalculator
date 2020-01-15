@@ -1,14 +1,16 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Add\Add.csproj" />
-    <ProjectReference Include="..\Divide\Divide.csproj" />
-    <ProjectReference Include="..\Helpers\Helpers.csproj" />
-    <ProjectReference Include="..\Operations\Operations.csproj" />
+    <Reference Include="Helper">
+      <HintPath>..\Helper\bin\Debug\netcoreapp3.1\Helper.dll</HintPath>
+    </Reference>
+    <Reference Include="MathOperations">
+      <HintPath>..\IBasicCalculator\bin\Debug\netcoreapp3.1\MathOperations.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
