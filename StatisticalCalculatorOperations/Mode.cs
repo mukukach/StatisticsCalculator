@@ -1,20 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-
-namespace StatsOperations
+using System.Linq;
+namespace StatisticalCalculatorOperations
 {
-    public class Mode
+  public class Mode
     {
-        private readonly double[] ArrayList = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
-        public static double mode(double[] ArrayValues)
+  
+         public static double Findmode(double[] x)
         {
-
-            var mode = ArrayValues.GroupBy(n => n).
-                       OrderByDescending(g => g.Count()).
-                       Select(g => g.Key).FirstOrDefault();
+            double high = x.OrderByDescending(n => n).First();
+            double mode = x.GroupBy(i => i)  //Grouping same items
+            .OrderByDescending(g => g.Count()) //now getting frequency of a value
+            .Select(g => g.Key) //selecting key of the group
+            .FirstOrDefault();   //Finally, taking the most frequent value
+           
             return mode;
         }
+
+
+
     }
 }

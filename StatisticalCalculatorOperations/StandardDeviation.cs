@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Operations;
 
-namespace StatsOperations
+namespace StatisticalCalculatorOperations
 {
-    public class StandardDev
+   public class StandardDeviation
     {
-
-        public static double StanDev(double[] ArrayValues)
+        
+        public static double SD(double[] ArrayValues)
         {
+           double result = Squareroot.Sq(Variance.Findvariance(ArrayValues));
 
-            double VarValue = Variance.variance(ArrayValues);
-            double sdeviation = Math.Sqrt(VarValue);
-               
-            return sdeviation;
-
+            return Helpers.Rounding.RoundTwoDecimalPlaces(result);
+            
         }
+
     }
 }
