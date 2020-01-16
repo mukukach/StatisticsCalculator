@@ -7,7 +7,7 @@ namespace StatisticalCalculatorOperations
 {
    public class Zscore
     {
-        public static double ZScore(dynamic score, dynamic values)
+        public static double ZScore(dynamic score, double [] values)
 
         {
 
@@ -17,7 +17,7 @@ namespace StatisticalCalculatorOperations
 
             double zScore = Division.Divide(Subtraction.Sub(score, mean), standDev);
 
-            return zScore;
+            return Helpers.Rounding.RoundTwoDecimalPlaces(zScore);
 
         }
     }

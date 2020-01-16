@@ -1,36 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using Helper;
-using MathOperations;
+using Helpers;
 
-namespace StatsOperations
+namespace StatisticalCalculatorOperations
 {
-    public class Median
+   public class Median
     {
-        public static double median(double[] ArrayValues)
+        public static double FindMedian(double[] sourceNumbers)
         {
-            double medianv = 0;
-            int a = Division.Div(HelperClass.ArrayLenth(ArrayValues),2);
+            //Check if Array is empty       
+            if (sourceNumbers == null || sourceNumbers.Length == 0)
+                throw new System.Exception("Median of empty array not defined.");
 
-            if (a % 2 == 0)
-            {
-                //medianv = (ArrayValues[a-1] + (ArrayValues[a]))/2;
-                medianv = (((double)ArrayValues.ElementAt(a) + (double)ArrayValues.ElementAt(a- 1)) / 2);
+            //make sure the list is sorted, but use a new array
+            double[] sortedPNumbers = (double[])sourceNumbers.Clone();
+            Array.Sort(sortedPNumbers);
 
-            }
-            else if (a % 2 > 0)
-            {
-
-                // medianv = ArrayValues[a];
-                medianv = (double)ArrayValues.ElementAt(a);
-
-            }
-            
-
-            return medianv;
-
+            //get the median
+            int size = sortedPNumbers.Length;
+            int mid = size / 2;
+            double median = (size % 2 != 0) ? (double)sortedPNumbers[mid] : ((double)sortedPNumbers[mid] + (double)sortedPNumbers[mid - 1]) / 2;
+            return median;
         }
     }
 }
